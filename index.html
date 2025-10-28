@@ -1,2 +1,117 @@
-hello world!
-123
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KUANG JIAN</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #1e1e2f, #25254d, #4e1a73);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+    }
+    /* 背景流光 */
+    .gradient-bg {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1), transparent 70%);
+      animation: flow 8s infinite linear;
+    }
+    @keyframes flow {
+      0% { transform: translate(-25%, -25%) rotate(0deg); }
+      100% { transform: translate(-25%, -25%) rotate(360deg); }
+    }
+
+    /* 内容盒子 */
+    .card {
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px 60px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255,255,255,0.1);
+      text-align: center;
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1.5s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 3px solid rgba(255,255,255,0.6);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #ddd;
+      margin-bottom: 20px;
+    }
+
+    .links a {
+      margin: 0 10px;
+      padding: 8px 16px;
+      border-radius: 30px;
+      text-decoration: none;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
+      transition: all 0.3s;
+    }
+
+    .links a:hover {
+      background: rgba(255,255,255,0.2);
+      transform: scale(1.05);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 15px;
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="gradient-bg"></div>
+  <div class="card">
+    <img src="https://avatars.githubusercontent.com/u/9919?v=4" alt="Avatar" class="avatar">
+    <h1>你好，我是 Kiyou</h1>
+    <p>创意开发者 ｜ 音乐与代码的混合体 🎵💻</p>
+    <div class="links">
+      <a href="https://github.com/你的用户名" target="_blank">GitHub</a>
+      <a href="mailto:you@example.com">联系我</a>
+      <a href="#projects">作品集</a>
+    </div>
+  </div>
+  <footer>© 2025 My Creative Space</footer>
+
+  <script>
+    // 鼠标流光效果
+    document.addEventListener('mousemove', e => {
+      const bg = document.querySelector('.gradient-bg');
+      bg.style.background = `radial-gradient(circle at ${e.pageX/innerWidth*100}% ${e.pageY/innerHeight*100}%, rgba(255,255,255,0.1), transparent 70%)`;
+    });
+  </script>
+</body>
+</html>
